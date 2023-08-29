@@ -8,7 +8,15 @@
 
 
 class Counter:
-    pass
+    def __init__(self, counter=0):
+        self.counter = counter
+
+    def __call__(self, *args, **kwargs):
+        return self.counter
+
+    def increment(self):
+        self.counter += 1
+        return self.counter
 
 
 counter = Counter()
@@ -19,3 +27,8 @@ print(counter())  # 1
 
 counter.increment()
 print(counter())  # 2
+
+counter()
+counter()
+res = counter()
+print(res)
